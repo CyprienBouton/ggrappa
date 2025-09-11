@@ -7,7 +7,7 @@ name = "gGRAPPA"  # Replace with your project name
 version = "0.1.0"
 description = "gGRAPPA provides an easy to use tool to perform generalized GRAPPA reconstructions on kspace data."
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.9"
 license = { text = "MIT" }
 authors = [
   { name = "Maxime Bertrait", email = "maxime.bertrait@cea.fr" }
