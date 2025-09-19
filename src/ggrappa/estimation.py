@@ -27,8 +27,8 @@ def estimate_grappa_kernel(acs,
     acs = acs.to(dtype)
     nc, acsny, acsnz, acsnx = acs.shape
 
-    logger.debug("GRAPPA Kernel size: ", kernel_size)
-    logger.debug("lambda: ", lambda_)
+    logger.debug("GRAPPA Kernel size: %s", kernel_size)
+    logger.debug("lambda: %s", lambda_)
 
     if kernel_size:
         pat = torch.zeros([((k-1) * af[i]*[1,1][i==0] + 1) for i, k in enumerate(kernel_size[:2])])
