@@ -15,7 +15,7 @@ logger = logging.getLogger(__name__)
 def GRAPPA_Recon(
         sig: torch.Tensor,
         acs: torch.Tensor,
-        af: Union[list[int], tuple[int, ...]],
+        af: Union[list[int], tuple[int, ...]] = None,
         delta: int = 0,
         kernel_size: Union[list[int], tuple[int, ...]] = (4,4,5),
         lambda_: float = 1e-4,
@@ -64,9 +64,9 @@ def GRAPPA_Recon(
     isGolfSparks : bool, optional
         Whether the input data is from the GoLF-SPARKLING sequence. Default: `False`.
     """
-    if acs is None and grappa_recon_spec is None:
-        acs = extract_sampled_regions(sig, acs_only=True)
     if grappa_recon_spec is None:
+        if acs is None and grappa_recon_spec is None:
+            acs = extract_sampled_regions(sig, acs_only=True)
         grappa_recon_spec = estimate_grappa_kernel(acs,
                                                    af=af,
                                                    kernel_size=kernel_size,
